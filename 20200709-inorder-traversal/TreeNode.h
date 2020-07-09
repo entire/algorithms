@@ -72,7 +72,7 @@ public:
         while (current != NULL || !stack.empty()) {
             std::cout << ">loop" << std::endl;
             while (current != NULL) {
-                std::cout << "\t\twe are at: " << current->val << std::endl;
+                std::cout << "\t\ttwe are at: " << current->val << std::endl;
                 stack.push(current); // visited
                 current = current->left; // move left
             }
@@ -82,11 +82,14 @@ public:
             current = stack.top(); // we return to last visited
             std::cout << "\tpop stack!" << std::endl;
             stack.pop(); // remove last visited, go to previous
-            std::cout << "\tcurrent val after stack.pop(): " << current->val << std::endl;
+            std::cout << "\tcurrent: " << current->val << std::endl;
             inorder.push_back(current->val);
+            if (stack.empty()) {
+                std::cout << "\tstack is currently empty" << std::endl;
+            }
             current = current->right;
        }
-        return inorder;
+       return inorder;
     }
 
     void printTree(TreeNode* tree) {
