@@ -5,6 +5,7 @@
 
 #include <iostream>
 #include <vector>
+#include <stack>
 
 struct TreeNode {
     int val;
@@ -50,6 +51,42 @@ public:
         invertTree(root->right);
         invertTree(root->left);
         return root;
+    }
+
+    std::vector<int> inorderTraversal(TreeNode* root) {
+        if (root == NULL) {
+            return std::vector<int> {};
+        }
+
+        std::vector<int> left = inorderTraversal(root->left);
+        left.push_back(root->val);
+        std::vector<int> right = inorderTraversal(root->right);
+        left.insert(left.end(), right.begin(), right.end());
+        return left;
+    }
+
+    std::vector<int> inorderTraversalIterative(TreeNode* root) {
+        std::stack<TreeNode *> stack;
+        TreeNode* current = root;
+        std::vector<int> inorder;
+        while (current != NULL || !stack.empty()) {
+            std::cout << ">loop" << std::endl;
+            while (current != NULL) {
+                std::cout << "\t\twe are at: " << current->val << std::endl;
+                stack.push(current); // visited
+                current = current->left; // move left
+            }
+            // current should be empty at this point
+            std::cout << "\tcurrent is empty now" << std::endl;
+            std::cout << "\tset current to stack.top()" << std::endl;
+            current = stack.top(); // we return to last visited
+            std::cout << "\tpop stack!" << std::endl;
+            stack.pop(); // remove last visited, go to previous
+            std::cout << "\tcurrent val after stack.pop(): " << current->val << std::endl;
+            inorder.push_back(current->val);
+            current = current->right;
+       }
+        return inorder;
     }
 
     void printTree(TreeNode* tree) {

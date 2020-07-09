@@ -14,7 +14,7 @@ struct TreeNode {
     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
 };
 
-class  {
+class TreeManager {
 public:
     TreeNode* mergeTrees(TreeNode* t1, TreeNode* t2) {
         if (t1 == nullptr && t2 == nullptr) return nullptr;
