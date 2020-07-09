@@ -14,18 +14,19 @@ struct TreeNode {
     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
 };
 
-class  {
+class TreeManager {
 public:
-    TreeNode* mergeTrees(TreeNode* t1, TreeNode* t2) {
-        if (t1 == nullptr && t2 == nullptr) return nullptr;
-        if (t1 == nullptr) return t2;
-        if (t2 == nullptr) return t1;
-
-        t1->val = t1->val + t2->val;
-        t1->left = mergeTrees(t1->left, t2->left);
-        t1->right = mergeTrees(t1->right, t2->right);
-        return t1;
-   }
+    TreeNode* invertTree(TreeNode* root) {
+        if (root == NULL) {
+            return NULL;
+        }
+        TreeNode* swap = root->right;
+        root->right = root->left;
+        root->left = swap;
+        invertTree(root->right);
+        invertTree(root->left);
+        return root;
+    }
 
     void printTree(TreeNode* tree) {
         std::cout << "Tree value : " << tree->val << std::endl;

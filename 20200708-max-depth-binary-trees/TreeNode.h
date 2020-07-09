@@ -14,18 +14,17 @@ struct TreeNode {
     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
 };
 
-class  {
+class TreeNodeDepth {
 public:
-    TreeNode* mergeTrees(TreeNode* t1, TreeNode* t2) {
-        if (t1 == nullptr && t2 == nullptr) return nullptr;
-        if (t1 == nullptr) return t2;
-        if (t2 == nullptr) return t1;
+    int maxDepth(TreeNode* root) {
+        // both child nodes dont exist
+        if (root == NULL) {
+            return 0;
+        }
 
-        t1->val = t1->val + t2->val;
-        t1->left = mergeTrees(t1->left, t2->left);
-        t1->right = mergeTrees(t1->right, t2->right);
-        return t1;
-   }
+        // both nodes exist
+        return 1 + std::max(maxDepth(root->left), maxDepth(root->right));
+  }
 
     void printTree(TreeNode* tree) {
         std::cout << "Tree value : " << tree->val << std::endl;
