@@ -3,9 +3,10 @@
 #include "ReverseString.h"
 
 int main() {
-    std::vector<char> stringArray {"h","e","l","l","o"};
+    std::vector<char> chars = {'a', 'b', 'c'};
+
     ReverseString reverser;
-    reverser.reverseString(stringArray);
-    // std::cout << answer << std::endl;
+    reverser.reverseStringUsingSTL(chars);
     return 0;
+
 }

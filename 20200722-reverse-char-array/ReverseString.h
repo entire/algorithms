@@ -1,13 +1,15 @@
 #include <vector>
+#include <iterator>
+#include <algorithm>
 
 class ReverseString
 {
 public:
-    ReverseString(/* args */);
-    ~ReverseString();
-
-    void reverseString(std::vector<char>& s) {
-
+    void reverseStringUsingSTL(std::vector<char>& s) {
+        std::reverse(s.begin(), s.end());
+        for (auto& elem : s) {
+            std::cout << elem << " " << std::endl;
+        }
     }
 };
 
