@@ -30,14 +30,14 @@ std::vector<int> smallestDifference(std::vector<int> arrayOne, std::vector<int> 
     int firstIndex = 0;
     int secondIndex = 0;
     int smallestDiffSoFar = INT_MAX; // make this really large so the first time diff
-	  int currentDiff = INT_MAX;
+	int currentDiff = INT_MAX;
     std::vector<int> difference;
 
     while(firstIndex < arrayOne.size() && secondIndex < arrayTwo.size()) {
         int firstNum = arrayOne[firstIndex];
         int secondNum = arrayTwo[secondIndex];
-			std::cout << "firstIndex: " << firstIndex + 1<< " out of " << arrayOne.size() << " -> " << firstNum << std::endl;
-			std::cout << "secondIndex: " << secondIndex +1 << " out of " << arrayTwo.size() << " -> " << secondNum << std::endl;
+		std::cout << "firstIndex: " << firstIndex + 1<< " out of " << arrayOne.size() << " -> " << firstNum << std::endl;
+	    std::cout << "secondIndex: " << secondIndex +1 << " out of " << arrayTwo.size() << " -> " << secondNum << std::endl;
 						
         // if diff is 0, that is the answer
         if (firstNum < secondNum) {
@@ -66,8 +66,8 @@ std::vector<int> smallestDifference(std::vector<int> arrayOne, std::vector<int> 
         if (smallestDiffSoFar > currentDiff) {
             smallestDiffSoFar = currentDiff;
             difference = {firstNum, secondNum};
-        }
+        } // if
 		std::cout << std::endl;
-    }
+    } // while
 	return difference;
 }
