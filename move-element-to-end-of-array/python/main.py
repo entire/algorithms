@@ -2,7 +2,9 @@ import copy
 
 def moveElementToEndUsingLambda(array, toMove):
     predefined_list = [toMove]
-    array = sorted(array, key=lambda x: x in predefined_list) 
+    function = lambda x: x in predefined_list
+    print(function)
+    array = sorted(array, key=function)
     print(array)
     return array
 
