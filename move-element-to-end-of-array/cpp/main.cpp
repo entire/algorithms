@@ -29,7 +29,14 @@ std::vector<int> moveElementToEnd(std::vector<int> &array, int toMove) {
             j--;
         }
         if (array[i] == toMove) {
+            std::cout << "i is at: " << i << std::endl;
+            std::cout << "element at index[" << i <<  "] is " << array[i] << std::endl;
+            std::cout << "its going to move to the end" << std::endl;
+            std::cout << "j is at: " << j << std::endl;
+            std::cout << "element at index[" << j <<  "] is " << array[j] << std::endl;
+            std::cout << "swap between " << array[i] << " and " << array[j] << std::endl;
             std::swap(array[i], array[j]);
+            std::cout << std::endl;
         } 
         i++;
     }
